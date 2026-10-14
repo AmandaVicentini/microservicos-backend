@@ -1,0 +1,421 @@
+{
+  "info": {
+    "_postman_id": "e8f0b6f7-6d4f-4ebc-bb7c-1f4d2f9e99a1",
+    "name": "Amanda - Desenvolvimento de Sistemas Backend Fase 2",
+    "description": "Testes integrados do ServicoGestao, ServicoFaturamento e ServicoPlanosAtivos por meio do api-gateway.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    },
+    {
+      "key": "codigoCobranca",
+      "value": ""
+    },
+    {
+      "key": "codigoPagamento",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "ServicoGestao",
+      "item": [
+        {
+          "name": "Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "health"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Lista Clientes",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/gestao/clientes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gestao",
+                "clientes"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Lista Planos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/gestao/planos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gestao",
+                "planos"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Nova Assinatura",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codCli\": 6,\n  \"codPlano\": 2,\n  \"custoFinal\": 94.90,\n  \"descricao\": \"Cliente recebeu condicao promocional de fidelidade.\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/gestao/assinaturas",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gestao",
+                "assinaturas"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Atualiza Custo Mensal Plano",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"custoMensal\": 119.90\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/gestao/planos/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gestao",
+                "planos",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Assinaturas Todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/gestao/assinaturas/TODOS",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gestao",
+                "assinaturas",
+                "TODOS"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Assinaturas Ativos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/gestao/assinaturas/ATIVOS",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gestao",
+                "assinaturas",
+                "ATIVOS"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Assinaturas Cancelados",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/gestao/assinaturas/CANCELADOS",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gestao",
+                "assinaturas",
+                "CANCELADOS"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Assinaturas por Cliente",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/gestao/assinaturascliente/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gestao",
+                "assinaturascliente",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Assinaturas por Plano",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/gestao/assinaturasplano/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "gestao",
+                "assinaturasplano",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Gateway - Saúde integrada",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "health"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Faturamento - Criar cobrança",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/faturamento/cobrancas",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "faturamento",
+                "cobrancas"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"codigoAssinatura\": 1,\n  \"codigoCliente\": 1,\n  \"codigoPlano\": 1,\n  \"valor\": 79.9\n}"
+            }
+          }
+        },
+        {
+          "name": "Faturamento - Processar pagamento aprovado",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Idempotency-Key",
+                "value": "pagamento-assinatura-1"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/faturamento/cobrancas/{{codigoCobranca}}/pagamentos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "faturamento",
+                "cobrancas",
+                "{{codigoCobranca}}",
+                "pagamentos"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"aprovar\": true,\n  \"idempotencyKey\": \"pagamento-assinatura-1\"\n}"
+            }
+          }
+        },
+        {
+          "name": "Faturamento - Consultar cobrança",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/faturamento/cobrancas/{{codigoCobranca}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "faturamento",
+                "cobrancas",
+                "{{codigoCobranca}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Faturamento - Consultar pagamento",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/faturamento/pagamentos/{{codigoPagamento}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "faturamento",
+                "pagamentos",
+                "{{codigoPagamento}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Faturamento - Estornar pagamento",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/faturamento/pagamentos/{{codigoPagamento}}/estorno",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "faturamento",
+                "pagamentos",
+                "{{codigoPagamento}}",
+                "estorno"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Planos ativos - Listar todos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/planos-ativos",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "planos-ativos"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Planos ativos - Por cliente",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/planos-ativos/clientes/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "planos-ativos",
+                "clientes",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Planos ativos - Por plano",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/planos-ativos/planos/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "planos-ativos",
+                "planos",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Planos ativos - Por assinatura",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/planos-ativos/assinaturas/1",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "planos-ativos",
+                "assinaturas",
+                "1"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
